@@ -20,9 +20,19 @@ public class DeveloperModel {
     @Column(name="id")
     private Long id;
 
-    @Column(name="nome")
-    private String nome;
+    @Column(name="name")
+    private String name;
 
     @ManyToMany
     private List<SkillsModel> skills;
+
+    public boolean hasSkill(SkillsModel skill) {
+        for (SkillsModel containedSkill : getSkills()){
+            if (containedSkill.getId() == skill.getId()){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
