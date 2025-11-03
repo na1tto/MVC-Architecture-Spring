@@ -1,5 +1,6 @@
 package com.uepa.br.arqsoftmvc.client;
 
+import com.uepa.br.arqsoftmvc.client.dto.UserLanguageResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,13 +13,13 @@ public class UserServiceClient {
         this.restTemplate = restTemplate;
     }
 
-    public String getUserLanguage(long userId){
+    public UserLanguageResponse getUserLanguage(long userId){
         System.out.println("Simulando SOA: buscando o idioma pelo ID do usuário: " + userId);
         if (userId == 1) {
-            return "en";
+            return new UserLanguageResponse("en");
         } else if (userId == 2) {
-            return "es";
+            return new UserLanguageResponse("es");
         }
-        return "es";
+        return new UserLanguageResponse("en");
     }
 }

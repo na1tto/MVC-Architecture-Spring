@@ -1,6 +1,7 @@
 package com.uepa.br.arqsoftmvc.greeting;
 
 import com.uepa.br.arqsoftmvc.client.UserServiceClient;
+import com.uepa.br.arqsoftmvc.client.dto.UserLanguageResponse;
 import com.uepa.br.arqsoftmvc.greeting.dto.GreetingResponse;
 import com.uepa.br.arqsoftmvc.greeting.factory.GreetingFactory;
 import com.uepa.br.arqsoftmvc.greeting.factory.GreetingFactoryRegistry;
@@ -21,13 +22,14 @@ public class GreetingService {
 
     public GreetingResponse getGreetingsForUser(long userId) {
 
-        String language = userClient.getUserLanguage(userId);
+        UserLanguageResponse responseDto = userClient.getUserLanguage(userId);
+
+        String language = responseDto.language();
 
         GreetingFactory factory = factoryRegistry.getFactory(language);
 
         WellcomeGreeting welcome = factory.createWellcome();
         FarewellGreeting farewell = factory.createFarewell();
-
         return new GreetingResponse(welcome.getGreeting(), farewell.getGreeting());
     }
 }
