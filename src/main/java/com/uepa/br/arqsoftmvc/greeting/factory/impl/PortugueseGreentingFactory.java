@@ -9,20 +9,19 @@ import org.springframework.stereotype.Component;
 // esse eh o "produto" que a nossa abstract factory produz
 
 @Component
-public class SpanishGreetingFactory implements GreetingFactory {
-
+public class PortugueseGreentingFactory implements GreetingFactory {
     @Override
-    public WellcomeGreeting createWellcome() {
-        return () -> "Hola!"; // expressao lambda, cria uma implementacao em tempo de execucao da funcao get() de WellcomeGreeting
+    public WellcomeGreeting createWellcome(){
+        return () -> "Olá!";
     }
 
     @Override
-    public FarewellGreeting createFarewell() {
-        return () -> "Adios!";
+    public FarewellGreeting createFarewell(){
+        return () -> "Adeus!";
     }
 
     @Override
     public String getLanguageCode(){
-        return "es";
+        return "pt";
     }
 }

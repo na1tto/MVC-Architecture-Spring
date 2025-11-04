@@ -5,6 +5,9 @@ import com.uepa.br.arqsoftmvc.greeting.factory.model.FarewellGreeting;
 import com.uepa.br.arqsoftmvc.greeting.factory.model.WellcomeGreeting;
 import org.springframework.stereotype.Component;
 
+// classe de implementacao, nela os comportamentos sao implementados de forma concreta
+// esse eh o "produto" que a nossa abstract factory produz
+
 @Component
 public class EnglishGreetingFactory implements GreetingFactory {
 

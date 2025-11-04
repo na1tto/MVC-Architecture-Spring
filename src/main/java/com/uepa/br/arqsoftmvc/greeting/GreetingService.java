@@ -20,6 +20,9 @@ public class GreetingService {
         this.factoryRegistry = factoryRegistry;
     }
 
+    //coracao do processamento da aplicacao, aqui ocorrem as chamdas de funcoes
+    //que irao fornecer o fluxo necessário de dados para realizar a logica que
+    //pensamos
     public GreetingResponse getGreetingsForUser(long userId) {
 
         UserLanguageResponse responseDto = userClient.getUserLanguage(userId);
@@ -30,6 +33,6 @@ public class GreetingService {
 
         WellcomeGreeting welcome = factory.createWellcome();
         FarewellGreeting farewell = factory.createFarewell();
-        return new GreetingResponse(welcome.getGreeting(), farewell.getGreeting());
+        return new GreetingResponse(welcome.getGreeting(), farewell.getGreeting()); // retornando uma resposta
     }
 }
